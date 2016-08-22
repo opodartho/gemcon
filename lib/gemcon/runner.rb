@@ -1,30 +1,37 @@
-require "thor"
+require 'thor'
 module Gemcon
   class Runner < Thor
     include Thor::Actions
-    argument :app_name
 
-    desc "new [APP_NAME]", "Generate a simple console application"
-    def new
+    desc 'new [APP_NAME]', 'Generate a simple console application'
+    def new(app_name)
+      @app_name = app_name
       generate
+    end
+
+    desc 'version', 'Display version'
+    map %w(-v --version) => :version
+
+    def version
+      say "Gemcon #{VERSION}"
     end
 
     private
 
     def generate
-      template("Gemfile.tt", "Gemfile")
-      template("app/project.tt", "app/#{app_name}.rb")
-      template("config/boot.tt", "config/boot.rb")
-      template("bin/console", "bin/console")
+      template('Gemfile.tt', 'Gemfile')
+      template('app/project.tt', "app/#{@app_name}.rb")
+      template('config/boot.tt', 'config/boot.rb')
+      template('bin/console', 'bin/console')
     end
 
     def template(template, filename)
-      super(Gemcon.root.join("templates", template), "#{app_name}/#{filename}")
+      super(template, "#{@app_name}/#{filename}")
     end
 
     class << self
       def source_root
-        File.dirname(__FILE__)
+        Pathname.new(__FILE__).join('../../../templates')
       end
     end
   end
