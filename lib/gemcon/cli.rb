@@ -1,6 +1,6 @@
 require 'thor'
 module Gemcon
-  class Runner < Thor
+  class Cli < Thor
     include Thor::Actions
 
     desc 'new [APP_NAME]', 'Generate a simple console application'
@@ -23,7 +23,7 @@ module Gemcon
       template('app/project.tt', "app/#{@app_name}.rb")
       template('config/boot.tt', 'config/boot.rb')
       template('bin/console', 'bin/console')
-      chmod "#{@app_name}/bin/console", 0755
+      chmod "#{@app_name}/bin/console", 0o755
     end
 
     def template(template, filename)

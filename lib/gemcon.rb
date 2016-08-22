@@ -1,5 +1,5 @@
 require 'pathname'
-require 'gemcon/runner'
+require 'gemcon/cli'
 require 'gemcon/version'
 
 module Gemcon
