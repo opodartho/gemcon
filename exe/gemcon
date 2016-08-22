@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# -*- mode: ruby -*-
+
+require 'bundler/setup'
+require 'gemcon'
+Gemcon::Runner.start
