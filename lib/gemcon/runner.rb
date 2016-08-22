@@ -15,6 +15,7 @@ module Gemcon
       template("Gemfile.tt", "Gemfile")
       template("app/project.tt", "app/#{app_name}.rb")
       template("config/boot.tt", "config/boot.rb")
+      template("bin/console", "bin/console")
     end
 
     def template(template, filename)
