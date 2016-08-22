@@ -1,4 +1,4 @@
-# Gemcon
+# Gemcon [![Build Status](https://travis-ci.org/opodartho/gemcon.svg?branch=master)](https://travis-ci.org/opodartho/gemcon) [![Code Climate](https://codeclimate.com/github/opodartho/gemcon/badges/gpa.svg)](https://codeclimate.com/github/opodartho/gemcon) [![Issue Count](https://codeclimate.com/github/opodartho/gemcon/badges/issue_count.svg)](https://codeclimate.com/github/opodartho/gemcon)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gemcon`. To experiment with that code, run `bin/console` for an interactive prompt.
 
