@@ -23,6 +23,7 @@ module Gemcon
       template('app/project.tt', "app/#{@app_name}.rb")
       template('config/boot.tt', 'config/boot.rb')
       template('bin/console', 'bin/console')
+      chmod "#{@app_name}/bin/console", 0755
     end
 
     def template(template, filename)
