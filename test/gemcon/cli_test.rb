@@ -1,31 +1,35 @@
 require 'test_helper'
-require 'pry'
 
 describe Gemcon::Cli do
+  include FakeFS::SpecHelpers
   describe '#new' do
     before do
-      FakeFS do
-        FakeFS::FileSystem.clone(Gemcon::Cli.source_root)
-      end
+      FakeFS::FileSystem.clone(Gemcon::Cli.source_root)
     end
 
     it 'generate files and directories' do
-      FakeFS do
-        Gemcon::Cli.start %w(new TreeFlex)
-        assert File.directory? 'TreeFlex'
-        assert File.directory? 'TreeFlex/app'
-        assert File.directory? 'TreeFlex/config'
-        assert File.directory? 'TreeFlex/bin'
-        assert File.file? 'TreeFlex/app/TreeFlex.rb'
-        assert File.file? 'TreeFlex/bin/console'
-        assert File.file? 'TreeFlex/config/boot.rb'
-        assert File.file? 'TreeFlex/Gemfile'
-      end
+      Gemcon::Cli.start %w(new TreeFlex)
+      assert File.directory? 'TreeFlex'
+      assert File.directory? 'TreeFlex/app'
+      assert File.directory? 'TreeFlex/config'
+      assert File.directory? 'TreeFlex/bin'
+      assert File.file? 'TreeFlex/app/TreeFlex.rb'
+      assert File.file? 'TreeFlex/bin/console'
+      assert File.file? 'TreeFlex/config/boot.rb'
+      assert File.file? 'TreeFlex/Gemfile'
     end
 
     it 'prints usqges error' do
       out = capture_io { Gemcon::Cli.start %w(new) }.join ''
-      binding.pry
+      out.must_match 'Usage: gemcon new [APP_NAME]'
+    end
+
+    describe '#options' do
+      it 'add ruby version in Gemfile' do
+        Gemcon::Cli.start %w(new TreeFlex --ruby=2.1.5)
+        gemfile_content = FakeFS::FileSystem.find('TreeFlex/Gemfile').content
+        assert(gemfile_content.include?("ruby '2.1.5'"))
+      end
     end
   end
 
