@@ -16,7 +16,7 @@ $ gemcon -v
 ## Usage
 
 ```bash
-$ gemcon new [APP_NAME]
+$ gemcon new example_app
 ```
 For help:
 ```bash
