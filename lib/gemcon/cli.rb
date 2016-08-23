@@ -1,5 +1,6 @@
 require 'thor'
 module Gemcon
+  # Gemcon Cli define tasks using thor
   class Cli < Thor
     include Thor::Actions
 
