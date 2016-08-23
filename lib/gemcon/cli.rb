@@ -4,7 +4,15 @@ module Gemcon
     include Thor::Actions
 
     desc 'new [APP_NAME]', 'Generate a simple console application'
-    def new(app_name)
+    option :ruby, aliases: '-r'
+    def new(app_name = nil)
+      raise Error, 'Usage: gemcon new [APP_NAME]' if app_name.nil?
+      path = File.expand_path(app_name)
+      raise(
+        Error,
+        set_color("ERROR: #{path} already exists.", :red)
+      ) if File.exist?(path)
+
       @app_name = app_name
       generate
     end
