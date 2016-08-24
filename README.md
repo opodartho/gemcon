@@ -1,4 +1,4 @@
-# Gemcon [![Build Status](https://travis-ci.org/opodartho/gemcon.svg?branch=master)](https://travis-ci.org/opodartho/gemcon) [![Code Climate](https://codeclimate.com/github/opodartho/gemcon/badges/gpa.svg)](https://codeclimate.com/github/opodartho/gemcon) [![Issue Count](https://codeclimate.com/github/opodartho/gemcon/badges/issue_count.svg)](https://codeclimate.com/github/opodartho/gemcon)
+# Gemcon [![Gem Version](https://badge.fury.io/rb/gemcon.svg)](https://badge.fury.io/rb/gemcon) [![Build Status](https://travis-ci.org/opodartho/gemcon.svg?branch=master)](https://travis-ci.org/opodartho/gemcon) [![Code Climate](https://codeclimate.com/github/opodartho/gemcon/badges/gpa.svg)](https://codeclimate.com/github/opodartho/gemcon) [![Issue Count](https://codeclimate.com/github/opodartho/gemcon/badges/issue_count.svg)](https://codeclimate.com/github/opodartho/gemcon)
 
 Simple ruby console application generator.
 
